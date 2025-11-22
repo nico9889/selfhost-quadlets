@@ -1,0 +1,11 @@
+[Container]
+ContainerName=immich-machine-learning
+Image=ghcr.io/immich-app/immich-machine-learning:release
+Network=immich-network.network
+Volume=immich-model-cache:/cache
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

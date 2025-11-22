@@ -1,0 +1,18 @@
+[Container]
+ContainerName=immich-postgres
+Environment=POSTGRES_USER=immich
+Environment=POSTGRES_DB=immich
+Environment=POSTGRES_INITDB_ARGS=--data-checksums
+# Environment=POSTGRES_PASSWORD_FILE=/run/secret/immich_database_password
+Environment=TZ=UTC
+Secret=immich_database_password,type=env,target=POSTGRES_PASSWORD
+Image=ghcr.io/immich-app/postgres:18-vectorchord0.5.3
+Network=immich-network.network
+ShmSize=128mb
+Volume=immich-database:/var/lib/postgresql/data
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

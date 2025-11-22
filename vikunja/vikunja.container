@@ -1,0 +1,15 @@
+[Container]
+ContainerName=vikunja
+Environment=VIKUNJA_SERVICE_PUBLICURL=https://your.domain.tld
+Environment=VIKUNJA_DATABASE_PATH=/db/vikunja.db
+Secret=vikunja-service-jwtsecret,type=env,target=VIKUNJA_SERVICE_JWTSECRET
+Image=vikunja/vikunja
+Network=private-network.network
+Volume=vikunja-files:/app/vikunja/files
+Volume=vikunja-db:/db
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

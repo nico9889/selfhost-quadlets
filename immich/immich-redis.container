@@ -1,0 +1,11 @@
+[Container]
+ContainerName=immich-redis
+HealthCmd=redis-cli ping || exit 1
+Image=docker.io/valkey/valkey:9-alpine
+Network=immich-network.network
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

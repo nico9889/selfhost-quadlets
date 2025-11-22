@@ -1,0 +1,24 @@
+[Unit]
+Requires=immich-redis.service immich-database.service
+After=immich-redis.service immich-database.service
+
+[Container]
+ContainerName=immich-server
+Environment=TZ=UTC
+Environment=DB_USERNAME=immich
+Environment=DB_DATABASE_NAME=immich
+Environment=DB_HOSTNAME=immich-postgres
+Environment=REDIS_HOSTNAME=immich-redis
+Secret=immich_database_password,type=env,target=DB_PASSWORD
+Image=ghcr.io/immich-app/immich-server:v2
+Network=immich-network.network
+Network=private-network.network
+Volume=/mnt/YOUR-NETWORK-DRIVE/immich:/data
+Volume=/etc/localtime:/etc/localtime:ro
+AddDevice=/dev/dri:/dev/dri
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

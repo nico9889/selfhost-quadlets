@@ -1,0 +1,4 @@
+[Build]
+ImageTag=localhost/caddy
+SetWorkingDirectory=/home/USER/caddy
+Pull=never
