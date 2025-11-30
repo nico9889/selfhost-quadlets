@@ -1,5 +1,5 @@
 # selfhost-quadlets
-A repository sharing the quadlet configuration I'm creating overtime for my own services.
+A repository sharing the quadlet configuration I'm creating over time for my own services.
 
 Writing Quadlets is absurdibly time-expensive, and that's the reason behind this repository:
 * to backup my configurations;
